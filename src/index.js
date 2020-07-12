@@ -1,4 +1,17 @@
 'use strict';
+
+import AddPlacePopup from './scripts/AddPlacePopup.js';
+import Api from './scripts/Api.js';
+import Card from './scripts/Card.js';
+import CardList from './scripts/Cardlist.js';
+import errorMessages from './scripts/data.js';
+import config from './scripts/data.js';
+import FormValidator from './scripts/Formvalidator.js';
+import ImagePopup from './scripts/ImagePopup.js';
+import Popup from './scripts/Popup';
+import UserInfo from './scripts/UserInfo.js';
+import UserInfoPopup from './scripts/UserInfoPopup.js';
+
 //-------------------------------------------------------------------------------------------------------
 //переменные
 const placesList = document.querySelector('.places-list'); //контейнер с карточками

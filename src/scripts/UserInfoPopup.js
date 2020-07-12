@@ -1,4 +1,6 @@
-class UserInfoPopup extends Popup {
+import Popup from './scripts/Popup';
+
+export class UserInfoPopup extends Popup {
   constructor(popup, openButton, popupForm, userInfo, editProfileFormValidator, api) {
     super(popup);
     this.openButton = openButton;

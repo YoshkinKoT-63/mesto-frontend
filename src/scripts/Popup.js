@@ -1,4 +1,4 @@
-class Popup {
+export class Popup {
   constructor(popup) {
     this.element = popup; //форма попап
     this.closePopupButton = this.element.querySelector('.popup__close');//найти кнопку закрытия окна
