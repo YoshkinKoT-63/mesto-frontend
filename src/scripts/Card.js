@@ -1,4 +1,4 @@
-export class Card {
+export default class Card {
   constructor(place, showCard, api, userId) {
     this.placeName = place.name;
     this.placeLink = place.link;

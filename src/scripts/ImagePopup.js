@@ -1,6 +1,6 @@
-import Popup from './scripts/Popup';
+import Popup from './Popup.js';
 
-export class ImagePopup extends Popup {
+export default class ImagePopup extends Popup {
 
   showImage = (url) => {
     this.element.querySelector('.popup__image').setAttribute('src', url);

@@ -1,6 +1,6 @@
-import Popup from './scripts/Popup';
+import Popup from './Popup.js';
 
-export class AddPlacePopup extends Popup {
+export default class AddPlacePopup extends Popup {
   constructor(popup, openButton, popupForm, cardList, addPlaceFormValidator, api) {
     super(popup);
     this.openButton = openButton;//кнопка открытия окна
