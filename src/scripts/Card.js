@@ -9,6 +9,11 @@ export default class Card {
     this.api = api;
     this.userId = userId;
     this.likes = place.likes;
+    this.like = this.like.bind(this);
+    this.remove = this.remove.bind(this);
+    this.openCard = this.openCard.bind(this);
+    this.create = this.create.bind(this);
+    this.setEventListeners = this.setEventListeners.bind(this);
   }
 
 //лайк пользователя
@@ -17,7 +22,7 @@ export default class Card {
   };
 
 //лайки
-  like = () => {
+  like() {
     if (this.isLiked()) {
       this.api.unLikeCard(this.cardId)
       .then(values => {
@@ -44,7 +49,7 @@ export default class Card {
   };
 
 //удаление карточки
-  remove = (event) => {
+  remove(event) {
     event.stopPropagation();
     if(confirm('Вы точно хотите удалить эту карточку?')) {
       this.api.removeCard(this.cardId)
@@ -60,12 +65,12 @@ export default class Card {
     }
   };
 
-  openCard = () => {
+  openCard() {
     this.showCard(this.placeLink);
   };
  
 //создание карточки
-  create = () => {
+  create() {
     //назначим переменные
     this.placeCard = document.createElement('div'); // карточка
     this.placeCardImage = document.createElement('div'); // фото
@@ -130,7 +135,7 @@ export default class Card {
   };
 
 //слушатели событий  
-  setEventListeners = () => {
+  setEventListeners() {
     this.placeCardLikeIcon.addEventListener('click', this.like);
     this.placeCardImage.addEventListener('click', this.openCard);
     if (this.owner._id === this.userId) {

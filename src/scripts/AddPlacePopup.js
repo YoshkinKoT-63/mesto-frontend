@@ -9,15 +9,18 @@ export default class AddPlacePopup extends Popup {
     this.popupButton = this.popupForm.querySelector('.button');
     this.addPlaceFormValidator = addPlaceFormValidator;
     this.api = api;
+    this.resetForm = this.resetForm.bind(this);
+    this.submit = this.submit.bind(this);
+    this.setEventListeners = this.setEventListeners.bind(this);
   }
 
-  resetForm = () => {
+  resetForm() {
     this.popupForm.reset();
     this.addPlaceFormValidator.setButtonInactive(this.popupButton);
     this.addPlaceFormValidator.resetValidationErrors(this.popupForm);
   };
 
-  submit = (event) => {
+  submit(event) {
     event.preventDefault();
     this.api.uploadCard(this.popupForm.elements.name.value, this.popupForm.elements.link.value)
     .then((res) => {
@@ -34,7 +37,7 @@ export default class AddPlacePopup extends Popup {
     super.open();
   };
 
-  setEventListeners = () => {
+  setEventListeners() {
     super.setEventListeners();
     this.openButton.addEventListener('click', () => {this.open()});//открытие по заданной кнопке
     this.popupForm.addEventListener('submit', this.submit);

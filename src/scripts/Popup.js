@@ -2,6 +2,7 @@ export default class Popup {
   constructor(popup) {
     this.element = popup; //форма попап
     this.closePopupButton = this.element.querySelector('.popup__close');//найти кнопку закрытия окна
+    this.closePopupByEscapeButton = this.closePopupByEscapeButton.bind(this);
   };
 
 //открытие окна
@@ -15,7 +16,7 @@ export default class Popup {
   };
 
 //закрытие окна при нажатии Esc
-  closePopupByEscapeButton = (event) => {
+  closePopupByEscapeButton(event) {
     if (event.code === 'Escape') {
       this.close();
     }

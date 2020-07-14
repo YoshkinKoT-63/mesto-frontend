@@ -9,16 +9,19 @@ export default class UserInfoPopup extends Popup {
     this.userInfo = userInfo;
     this.editProfileFormValidator = editProfileFormValidator;
     this.api = api;
+    this.resetForm = this.resetForm.bind(this);
+    this.submit = this.submit.bind(this);
+    this.setEventListeners = this.setEventListeners.bind(this);
   }
 
-  resetForm = () => {
+  resetForm() {
     this.editProfileFormValidator.setButtonActive(this.popupButton);
     this.editProfileFormValidator.resetValidationErrors(this.popupForm);
     this.popupForm.elements.infoName.value = this.userInfo.userName.textContent;
     this.popupForm.elements.infoAbout.value = this.userInfo.userAbout.textContent;
   };
 
-  submit = (event) => {
+  submit(event) {
     event.preventDefault();
     this.api.setUserInfo(this.popupForm.elements.infoName.value, this.popupForm.elements.infoAbout.value)
     .then((userData) => {
@@ -35,7 +38,7 @@ export default class UserInfoPopup extends Popup {
     super.open();
   };
 
-  setEventListeners = () => {
+  setEventListeners() {
     super.setEventListeners();
     this.openButton.addEventListener('click', () => {this.open()});//открытие по заданной кнопке
     this.popupForm.addEventListener('submit', this.submit);
