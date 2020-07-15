@@ -1,6 +1,7 @@
 'use strict';
 //-------------------------------------------------------------------------------------------------------
 //импорт модулей
+import "./pages/index.css";
 import AddPlacePopup from './scripts/AddPlacePopup.js';
 import Api from './scripts/Api.js';
 import Card from './scripts/Card.js';
