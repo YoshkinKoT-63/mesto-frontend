@@ -10,13 +10,13 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 module.exports = {
   entry: { main: './src/index.js' },
   output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: 'index.[chunkhash].js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.[chunkhash].js'
   },
 
   module: {
     rules: [
-      { 
+      {
         test: /\.js$/,
         use: { loader: 'babel-loader' },
         exclude: /node_modules/
@@ -30,7 +30,7 @@ module.exports = {
             options: {
               importLoaders: 2
             }
-          }, 
+          },
           'postcss-loader'
         ]
       },
@@ -39,7 +39,7 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-          name: './fonts/[name].[ext]'
+            name: './fonts/[name].[ext]'
           }
         }
       },
@@ -53,30 +53,30 @@ module.exports = {
               esModule: false
             },
           },
-            {
-                loader: 'image-webpack-loader',
-                options: {
-                  mozjpeg: {
-                    progressive: true,
-                    quality: 65
-                  },
-                  // optipng.enabled: false will disable optipng
-                  optipng: {
-                    enabled: false,
-                  },
-                  pngquant: {
-                    quality: [0.65, 0.90],
-                    speed: 4
-                  },
-                  gifsicle: {
-                    interlaced: false,
-                  },
-                  // the webp option will enable WEBP
-                  webp: {
-                    quality: 75
-                  }
-                }
-            },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.90],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
+          },
         ]
       }
     ]
@@ -88,12 +88,12 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html'
     }),
-    new MiniCssExtractPlugin({filename: 'style.[contenthash].css'}),
+    new MiniCssExtractPlugin({ filename: 'style.[contenthash].css' }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
       cssProcessor: require('cssnano'),
       cssProcessorPluginOptions: {
-          preset: ['default']
+        preset: ['default']
       },
       canPrint: true
     }),
