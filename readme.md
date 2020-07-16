@@ -12,6 +12,10 @@ HTML, CSS, JS
 
     git clone https://github.com//YoshkinKoT-63/sprint-11.git
 
+Установка пакетов:
+
+    git init
+
 Сборка проекта для использования:
 
     npm run build
