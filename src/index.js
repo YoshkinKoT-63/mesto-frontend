@@ -1,5 +1,18 @@
 'use strict';
 //-------------------------------------------------------------------------------------------------------
+//импорт модулей
+import "./pages/index.css";
+import AddPlacePopup from './scripts/AddPlacePopup.js';
+import Api from './scripts/Api.js';
+import Card from './scripts/Card.js';
+import CardList from './scripts/Cardlist.js';
+import {errorMessages, config} from './scripts/data.js';
+import FormValidator from './scripts/Formvalidator.js';
+import ImagePopup from './scripts/ImagePopup.js';
+import UserInfo from './scripts/UserInfo.js';
+import UserInfoPopup from './scripts/UserInfoPopup.js';
+
+//-------------------------------------------------------------------------------------------------------
 //переменные
 const placesList = document.querySelector('.places-list'); //контейнер с карточками
 const popupAddPlace = document.querySelector('.popup_type_add-place'); // всплывающее окно добавления карточки
@@ -64,36 +77,3 @@ Promise.all([
 .catch((err) => {
   console.log(err);
 })
-
-
-/*
-  Хорошая работа, класс Api создан, данные с сервера приходят и отправляются. Отлично, что сделана часть дополнительного
-  задания. Но к организации обмена с сервером есть несколько замечаний:
-
-  Надо исправить:
-  - + для загрузки начальных данных использовать Promise.all и передавать уже готовые данные в методы updateUserInfo и render
-  - + все изменения на странице должны происходить, только после того, как
-  сервер ответил подтверждением - в том чесле закрытие попапа
-  - + в ответ на отправку данных профиля сервер возвращает обновленные данные
-    Нужно использовать их, а не делать запрос ещё раз
-
-  Можно лучше: 
-  - + проверка ответа сервера и преобразование из json
-    дублируется во всех методах класса Api, лучше вынести в отдельный метод
-
-*/
-
-/*
-  Отлично, все замечания исправлены
-
-  Для закрепления полученных знаний советую сделать и оставшуюся часть дополнительного задания.
-  
-  Если у Вас будет свободное время так же попробуйте освоить работу с сервером
-  применив async/await для работы с асинхронными запросами.
-  https://learn.javascript.ru/async-await
-  https://habr.com/ru/company/ruvds/blog/414373/
-  https://www.youtube.com/watch?v=SHiUyM_fFME
-  Это часто используется в реальной работе
-
-  Успехов в дальнейшем обучении!
-*/

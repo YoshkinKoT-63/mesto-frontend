@@ -4,10 +4,14 @@ const errorMessages = {
   wrongUrl: 'Здесь должна быть ссылка',
 };
 
+const API_URL = NODE_ENV === 'production' ? 'https://praktikum.tk' : 'http://praktikum.tk';
+
 const config = {
-  url: 'https://praktikum.tk/cohort11/',
+  url: `${API_URL}/cohort11/`,
   headers: {
     authorization: '4caa9c4f-ade8-442a-8fcf-a6c39e9fafd7',
     'Content-Type': 'application/json'
   }
 };
+
+export {errorMessages, config};
